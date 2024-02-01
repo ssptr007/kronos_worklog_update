@@ -4,7 +4,7 @@ name: update_worklog
 on:
     workflow_dispatch:
     schedule:
-        - cron: '45 13 * * *'
+        - cron: '30 13 * * *'
 
 jobs:
     update_worklog:
@@ -25,8 +25,7 @@ jobs:
                   KRONOS_EMAIL: ${{ secrets.KRONOS_EMAIL }}
                   KRONOS_PASSWORD: ${{ secrets.KRONOS_PASSWORD }}
 
-            - name: Ping me On
-              if: github.event_name == 'schedule'
+            - name: PingMe On Pushbullet
               uses: kha7iq/pingme-action@v1
               with:
                 service: pushbullet
@@ -39,4 +38,3 @@ jobs:
                   Event is triggered by ${{ github.event_name }}
                   Workflow: ${{ github.workflow }}
                   Workflow Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-    
