@@ -1,4 +1,4 @@
-# Github workflow for python script
+# Github workflow for Python script
 name: update_worklog
 
 on:
@@ -18,7 +18,7 @@ jobs:
               with:
                   python-version: '3.x'
 
-            - name: Run update_worklog.py
+            - name: Run update_worklog python script
               run: |
                   python update_worklog.py
               env:
