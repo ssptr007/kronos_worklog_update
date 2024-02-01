@@ -4,7 +4,7 @@ name: update_worklog
 on:
     workflow_dispatch:
     schedule:
-        - cron: '40 13 * * *'
+        - cron: '45 13 * * *'
 
 jobs:
     update_worklog:
