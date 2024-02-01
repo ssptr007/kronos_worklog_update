@@ -24,3 +24,19 @@ jobs:
               env:
                   KRONOS_EMAIL: ${{ secrets.KRONOS_EMAIL }}
                   KRONOS_PASSWORD: ${{ secrets.KRONOS_PASSWORD }}
+
+            - name: Ping me On
+              if: github.event_name == 'schedule'
+              uses: kha7iq/pingme-action@v1
+              with:
+                service: pushbullet
+              env:
+                PUSHBULLET_TOKEN: ${{ secrets.PUSHBULLET_TOKEN }}
+                PUSHBULLET_DEVICE: ${{ secrets.PUSHBULLET_DEVICE }}
+                PUSHBULLET_TITLE: 'Kronos Worklog Updated'
+                PUSHBULLET_MESSAGE: |
+                  Reference: ${{ github.ref }}
+                  Event is triggered by ${{ github.event_name }}
+                  Workflow: ${{ github.workflow }}
+                  Workflow Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    
