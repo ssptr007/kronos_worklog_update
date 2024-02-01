@@ -56,7 +56,7 @@ def save_task_time(date, note, authorization_token, task_id, minute=480):
         'Content-Type': 'application/json',
     }
 
-    activity_ref_number = f"rajasimman.shanmugam@tarento.com#{generate_uuid()}"
+    activity_ref_number = os.environ['KRONOS_EMAIL'] + f"#{generate_uuid()}"
 
     data = {
         "time": [
