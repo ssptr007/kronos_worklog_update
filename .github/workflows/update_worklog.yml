@@ -24,12 +24,3 @@ jobs:
               env:
                   KRONOS_EMAIL: ${{ secrets.KRONOS_EMAIL }}
                   KRONOS_PASSWORD: ${{ secrets.KRONOS_PASSWORD }}
-
-            - name: Send telegram message
-              uses: appleboy/telegram-action@master
-              with:
-                  to: ${{ secrets.TELEGRAM_TO }}
-                  token: ${{ secrets.TELEGRAM_TOKEN }}
-                  message: |
-                    Worklog updated
-                    Click here to view workflow log https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
