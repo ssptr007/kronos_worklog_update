@@ -10,11 +10,14 @@ jobs:
     update_worklog:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
-            - uses: actions/setup-python@v5
-              name: Run update_worklog.py
+            - name: Checkout the repo
+              uses: actions/checkout@v4
+
+            - name: Setup Python
+              uses: actions/setup-python@v5
               with:
                   python-version: '3.x'
+
             - name: Run update_worklog.py
               run: |
                   python update_worklog.py
