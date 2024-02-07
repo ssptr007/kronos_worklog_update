@@ -98,21 +98,11 @@ while current_date <= end_date:
     if current_date.weekday() < 5:  # Monday to Friday
         date_str = current_date.strftime("%Y-%m-%d")
 
-        note_input = "Daily Status Call and Project Meetings"
-        task_id = tasks['Meetings']
-        minute = 60 # Total minutes spent on above task
-        status_code, response_json = save_task_time(date_str, note_input, authorization_token, task_id, minute)
-        print(f"For {date_str}: Status Code: {status_code}, Response JSON: {response_json}")
-    
-        note_input = "Project Management"
-        task_id = tasks['Project Management']
-        minute = 60 # Total minutes spent on above task
-        status_code, response_json = save_task_time(date_str, note_input, authorization_token, task_id, minute)
-        print(f"For {date_str}: Status Code: {status_code}, Response JSON: {response_json}")
+        
 
         note_input = "NOC Team Support"
         task_id = tasks['Support']
-        minute = 360 # Total minutes spent on above task
+        minute = 480 # Total minutes spent on above task
         status_code, response_json = save_task_time(date_str, note_input, authorization_token, task_id, minute)
         print(f"For {date_str}: Status Code: {status_code}, Response JSON: {response_json}")
 
